@@ -38,3 +38,8 @@ Download [Visual Studio Code](https://code.visualstudio.com/Download) and instal
 1. Step into the program (using the buttons at the top)
 1. Once your line has been run, check that your value has been moved into selected register
     ![Register Image](./images/Registers.jpg)
+
+
+## Code
+
+Once you have successfully installed everything look through the [ARM-7 Cheat Sheet](https://github.com/CanberraGrammar/cc-ext-2020-discoboard/blob/master/ARMv7-cheat-sheet.pdf) and try to make a program (e.g. a loop that count to 10)
