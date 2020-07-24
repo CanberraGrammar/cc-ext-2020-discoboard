@@ -21,7 +21,6 @@ Download [Visual Studio Code](https://code.visualstudio.com/Download) and instal
     - Open terminal/command prompt and run `git clone https://github.com/CanberraGrammar/cc-ext-2020-discoboard.git`
 1. Open the `Template` folder (in the week 1 folder) in VS Code
 1. Connect your discoboard to your computer
-1. Finally, open the command palette again, and type `PlatformIO: Upload`
 1. Open the command palette (Windows: Ctrl + Shift + P, Mac: CMD + Shift + P) and run `PlatformIO: Build` (simply search for it in the command palette)
 1. Next, open the command palette, and run: `COMP2300: Run first time flash`
 1. Finally, open the command palette again, and type `PlatformIO: Upload`
