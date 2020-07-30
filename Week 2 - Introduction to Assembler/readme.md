@@ -302,10 +302,15 @@ Write a program that will calculate the factorial of whatever number is in r0.
 The Fibonacci sequence is a sequence of numbers that follow this pattern:
 
 f0 = 0
+
 f1 = 1
+
 f2 = f1 + f0
+
 f3 = f2 + f1
+
 ...
+
 fn = (fn-1) + (fn-2)
 
 Write a program that will calculate the nth (stored in r0) number in the Fibonacci sequence. Test with the 35th number: `9227465`.
@@ -326,8 +331,11 @@ It recursively calculates factorials based on the idea that `5!` (5 factorial) i
 Recursion is possible in assembly too, but in order to pull it off you'll need a few things:
 
 `push {<registers>}` will put the values in all of the listed registers (listed as `r0-r6` (meaning all registers from r0-r6 recursive), or `r0,r2,r4` etc (meaning the listed registers)) onto the "stack". This effectively saves them, so they can be restored.
+
 `pop {<registers>}` will put the values stored on the stack back into the registers.
+
 `bl label` will branch (like `b`), except, the `lr` register will be populated with the address of the instruction after the `bl` instruction. This is analogous to "calling a function", and would be needed for a recursive implementation.
+
 `bx lr` will branch to the location stored in `lr`. Note that `lr` will not change after this branch back happens, and as a result, if you `bx lr` again, you'll jump back to the point you just jumped back to. A quick hint would be to make sure that you `push` `lr` to the stack with `push {lr}` before using `bl`, and that you remember to `pop {lr}` after the `bl` instruction.
 
 We don't *expect* anyone to complete this, but if you do, let us know, and we'll give you more activities.
