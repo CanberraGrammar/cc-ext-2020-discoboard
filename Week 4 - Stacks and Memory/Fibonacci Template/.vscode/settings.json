@@ -1,0 +1,8 @@
+{
+    "comp2300.gdb.server": "openocd",
+    "files.associations": {
+        "*.S": "arm"
+    },
+    "yaml.schemas": {},
+    "extensions.ignoreRecommendations": true
+}

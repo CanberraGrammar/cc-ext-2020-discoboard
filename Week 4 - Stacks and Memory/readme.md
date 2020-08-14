@@ -114,3 +114,7 @@ arrayStart:
 Open the factorial template and write a function that can take a value in `r0` and produce the factorial of this number, storing it in `r0` recursively.
 
 **Hint:** Is the link register, `lr`, being pushed onto the stack
+
+## Exercise 3 - Recursive Fibonacci
+
+Open the fibonacci template and write a function that can take a value in `r0` and produce the fibonacci of this number, storing it in `r0` recursively.
