@@ -118,3 +118,9 @@ Open the factorial template and write a function that can take a value in `r0` a
 ## Exercise 3 - Recursive Fibonacci
 
 Open the fibonacci template and write a function that can take a value in `r0` and produce the fibonacci of this number, storing it in `r0` recursively.
+
+## Exercise 4 - Arrays
+
+The template provides an empty space in memory we can use to implement an array. Write code to:
+1. Store numbers 1 - 10 in the array
+2. Write a function that will get the value at an index in the array and store it in `r0`
