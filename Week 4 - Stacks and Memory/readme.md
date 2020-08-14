@@ -1,11 +1,11 @@
-# Week 3 -- Stacks and Memory
+# Week 4 -- Stacks and Memory
 
 ## Stacks:
 Your discoboard contains one pre-defined stack. This can be used with two instructions
 
 ### Push
 
-`Push` moves the values from the registers onto the stack without wiping the 
+`Push` moves the values from the registers onto the stack without clearing the register
 
 ```armasm
 push {<register(s)>}
