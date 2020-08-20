@@ -164,6 +164,12 @@ Sure enough, if we were to implement that, we'd get a wave like this:
 
 Exactly what we want.
 
+In order to implement this in assembly, we need to keep track of which sample we're currently generating the output for, generate the output for that sample and finally call `BSP_AUDIO_OUT_Play_Sample`, but all of that should be reasonably doable:
+
+A simple loop, a function call, and then another function call should be all that's needed.
+
+Remember that the stack exists too: `push` for putting things on the stack, and `pop` for taking them off, and it should be reasonably easy to get a correct sound out.
+
 ## Activity
 
 Now, try to implement a wave that is as close to a 440hz triangle wave as possible. You'll have to do the maths yourselves -- as well as implement the code in assembly -- but it should be possible with everything we've gone through.
