@@ -68,3 +68,108 @@ If the water in some location spends more time above the "average" line, does th
 Hopefully, not. The size of each *wave* is dependent on the difference between the highest output -- at the *peak* -- and the lowest output -- the *trough*. This metric is called the *amplitude* of the wave.
 
 ## Making a sound
+
+Download the making sound [template](Making-Sound-Template.zip) (or pull from GIT), and open it in Visual Studio Code, as per usual.
+
+You'll notice that we've provided more sample-code than usual this time.
+
+```armasm
+.syntax unified
+.global main
+
+.type main, %function
+main:
+  bl init
+  b loop
+.size main, .-main
+
+.type loop, %function
+loop:
+  nop @your code here
+  b loop
+.size loop, .-loop
+```
+
+Your challenge now, is to make a triangle wave, at around 400hz. In order to do this:
+
+### Outputting Audio
+
+To output audio we need to call the function `BSP_AUDIO_OUT_Play_Sample`:
+
+```armasm
+bl BSP_AUDIO_OUT_Play_Sample
+```
+
+When we do this, we pass 16 bit integer to this function in r0, that represents the output. This means that the minimum value we can set is -32769; and likewise, the maximum value is 32768.
+
+It's also worth noting that if we call this function before it's time to output a sample (according to our *sample-rate* of 48000hz), the discoboard will wait until it's time to output the value. That is to say, that no matter how fast your code runs, it will be limited to running 48000 times per second.
+
+![](images/blocking.png)
+
+This is really useful, because it means we don't really have to worry about how long we wait before producing another value, and we can easily calculate (at least for simple wave-generators / *synthesizers*) exactly which numbers to go between, given this sample rate.
+
+It's worth noting that for very complex synthesizers, we're going to have to start worrying about how much time it takes to generate values.
+
+### Triangle Waves
+
+A triangle wave, as illustrated before, is a wave made up of two *linear* components.
+
+![](images/trianglewave.png)
+
+An up-slope, a peak in the middle, and then a down slope.
+
+Each linear component can be represented in standard form as: *y=mx+b* or: __output = sample number x stride + Initial Amplitude__.
+
+### An example calculation (skip this if you want!)
+
+For the example of a 480hz wave, since we have a sample rate of 48000hz, we have 100 samples per wave.
+
+This is nice: it means that for 50 samples we're climbing up to our peak amplitude, and then for the next 50, we're declining again.
+
+Let's try to go for a range/amplitude of `60,000`.
+
+#### Up slope
+
+We need an equation that is `-30,000` at `sample=0`, and `30,000` at `sample=50`.
+
+So, `output = sample x 1200 - 30000` is our way to go.
+
+In Python then:
+
+```py
+def generateWave(sample):
+    if sample <= 50:
+        return (sample * 1200) - 30000
+```
+
+#### Down slope
+
+We need an equation that is `30,000` at `sample=50`, and `-30,000` at `sample=100`.
+
+So, `output = (50-sample) x 1200 + 30000`.
+
+In Python, then:
+
+```py
+def generateWave(sample):
+    if sample <= 50:
+        return (sample * 1200) - 30000
+    else:
+        return (50 - sample) * 1200 + 30000
+```
+
+Sure enough, if we were to implement that, we'd get a wave like this:
+
+![](images/wave.png)
+
+Exactly what we want.
+
+## Activity
+
+Now, try to implement a wave that is as close to a 440hz triangle wave as possible. You'll have to do the maths yourselves -- as well as implement the code in assembly -- but it should be possible with everything we've gone through.
+
+## Extension Activity
+
+You may have noticed that it's impossible to make a 440hz wave nicely (as the discoboard has a sample rate of 48000hz).
+
+Try to get around this somehow -- think about methods you could use so that your wave was (on average) closer to the target of 440hz.
