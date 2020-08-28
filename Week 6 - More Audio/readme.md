@@ -56,15 +56,16 @@ while True:
 Now that we've got a basic understanding of how this should work in a high level language like Python, we've got to think about how we're going to lower it to machine code.
 
 ```armasm
+.global main
 .type main, %function
 main:
     bl init                         @ initialize()
-    mov r1, 0                       @ sample = 0
+    mov r1, #0                       @ sample = 0
 .size main, .-main
 
 .type loop, %function
 loop:                               @ while true
-    add r1, 1                       @     sample += 1
+    add r1, #1                      @     sample += 1
     
     @ load parameter
     @ into r0, and call
