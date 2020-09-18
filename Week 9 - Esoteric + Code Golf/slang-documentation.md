@@ -26,7 +26,7 @@ A stack/queue is available to be used as memory space. The stack/queue may have 
 
 `[`,`]` -> repeat actions between square brackets forever
 
-`n<cond>` -> skip next instruction depending on condition
+`n<cond>` -> skip next instruction depending on condition. The skipped instruction must be single width.
 
 `b` -> break from the innermost loop
 

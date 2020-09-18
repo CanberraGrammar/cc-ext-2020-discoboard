@@ -44,6 +44,11 @@ while ip < len(code):
         ip = ipc
     elif c == 'n':
         con = code[ip + 1]
+        ins = code[ip + 2]
+        if ins == '=' or ins == 'L' or ins == 'n':
+            print("n must be followed by single width instruction")
+            exit()
+            
         if con == '=':
             if vr == tr:
                 ip += 1
