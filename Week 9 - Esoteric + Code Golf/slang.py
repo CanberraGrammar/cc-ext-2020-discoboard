@@ -48,9 +48,12 @@ while ip < len(code):
         if ins == '=' or ins == 'L' or ins == 'n':
             print("n must be followed by single width instruction")
             exit()
-            
+
         if con == '=':
             if vr == tr:
+                ip += 1
+        if con == '!':
+            if vr != tr:
                 ip += 1
         elif con == '<':
             if vr < tr:

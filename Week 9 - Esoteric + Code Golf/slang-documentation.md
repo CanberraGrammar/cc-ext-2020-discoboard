@@ -53,6 +53,8 @@ A stack/queue is available to be used as memory space. The stack/queue may have 
 ## Conditions
 `=` -> vr = tr
 
+`!` -> vr != tr
+
 `<` -> vr < tr
 
 `>` -> vr > tr
