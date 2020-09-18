@@ -13,10 +13,13 @@ Although it's cliche, your first challenge is to write a line of code in this la
 ### Challenge 2 - Hello x 10
 In order to get a better understanding of how to use control structures, the challenge is now to say Hello, but 10 times, each on a separate line. This should be doable with a loop, but will require you to use both the temporary and value registers.
 
-### Challenge 3 - Summation
+### Challenge 3 - a-z
+Now, try to print the alphabet out, a-z, all on one line. Try to use a loop (`[]`) in order to minimise the number of characters needed for the code. 
+
+### Challenge 4 - Summation
 Write a program that calculates the sum of all numbers from 1 to a given number (loaded in at the start with an `L` instruction), and prints it to the console.
 
-### Challenge 4 - Fibonacci
+### Challenge 5 - Fibonacci
 Write a program which takes a number (n) with an `L` instruction and then produces the nth value of fibonacci (0,1,1,2,3,5,8...), printing each number along the way.
 
 
