@@ -2,7 +2,22 @@
 
 ## Esoteric
 
+Something we don't hear much about but might see while doing code golf, is esoteric languages. They're weird and wacky, but ultimately can be incredibly satisfying. An example of an esoteric language is available in the file [slang.py](slang.py).
+Your challenge is to, using this language, complete a few code golf challenges.
 
+Documentation for the language is available here: [documentation for slang](slang-documentation.md).
+
+### Challenge 1 - Hello World
+Although it's cliche, your first challenge is to write a line of code in this language, that will just say "Hello World". This is mainly to get to grips with some of the syntax.
+
+### Challenge 2 - Hello x 10
+In order to get a better understanding of how to use control structures, the challenge is now to say Hello, but 10 times, each on a separate line. This should be doable with a loop, but will require you to use both the temporary and value registers.
+
+### Challenge 3 - Summation
+Write a program that calculates the sum of all numbers from 1 to a given number (loaded in at the start with an `L` instruction), and prints it to the console.
+
+### Challenge 4 - Fibonacci
+Write a program which takes a number (n) with an `L` instruction and then produces the nth value of fibonacci (0,1,1,2,3,5,8...), printing each number along the way.
 
 
 ---
